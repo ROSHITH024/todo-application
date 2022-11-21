@@ -7,6 +7,9 @@ from todoapp.serializer import TodoSerializer,RegistrationSerializer
 from django.contrib.auth.models import User
 from rest_framework.decorators import action
 from rest_framework import authentication,permissions
+from rest_framework import mixins
+from rest_framework import generics
+from todoapp.custom_permission import IsOwner
 # Create your views here.
 
 
@@ -44,7 +47,7 @@ class TodosView(ViewSet):
 
 class TodoModelViewset(ModelViewSet):
     authentication_classes=[authentication.BasicAuthentication]
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[IsOwner]
     serializer_class=TodoSerializer
     queryset=Todos.objects.all()
 
@@ -97,3 +100,5 @@ class UserView(ModelViewSet):
     #     else:
     #         return Response(data=sr.errors)
       
+
+# class TodoDelete(mixins.DestroyModelMixin,generics.GenericAPIView):

@@ -4,11 +4,12 @@ from rest_framework import serializers
 from todoapp.models import Todos
 from django.contrib.auth.models import User
 class TodoSerializer(serializers.ModelSerializer):
+    id=serializers.CharField(read_only=True)
     status=serializers.CharField(read_only=True)
     user=serializers.CharField(read_only=True)
     class Meta:
         model=Todos
-        fields=["task_name","user","status"]
+        fields=["id","task_name","user","status"]
 
     def create(self, validated_data):
         usr=self.context.get("user")
