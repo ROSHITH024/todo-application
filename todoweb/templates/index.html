@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+<h1>welcome user {{request.user}}</h1>
+    <a href="{%url 'addtodos'%}">AddNewTodo</a>
+    <a href="{%url 'alltodos'%}">ListAllTodo</a>
+</h1>
+
+{%endblock%}

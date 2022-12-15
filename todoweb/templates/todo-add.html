@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<h1>create todo</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button class="btn btn-info">Add</button>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+{% endblock  %}
