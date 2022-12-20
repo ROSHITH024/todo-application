@@ -3,8 +3,8 @@
 {%block body_block%}
 
 <h1>welcome user {{request.user}}</h1>
-    <a href="{%url 'addtodos'%}">AddNewTodo</a>
-    <a href="{%url 'alltodos'%}">ListAllTodo</a>
+    <a href="{%url 'addtodos'%}" class="btn btn-outline-primary">AddNewTodo</a>
+    <a href="{%url 'alltodos'%}" class="btn btn-outline-warning">ListAllTodo</a>
 </h1>
 
 {%endblock%}
